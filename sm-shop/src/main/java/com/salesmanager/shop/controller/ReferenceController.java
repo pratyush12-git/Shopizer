@@ -129,7 +129,9 @@ public class ReferenceController {
 	public @ResponseBody String countryName(@RequestParam String countryCode, HttpServletRequest request, HttpServletResponse response) {
 		
 		try {
+			System.out.println("sealights Change");
 			Language language = languageUtils.getRequestLanguage(request, response);
+
 			if(language==null) {
 				return countryCode;
 			}
@@ -144,6 +146,7 @@ public class ReferenceController {
 		} catch (ServiceException e) {
 			LOGGER.error("Error while looking up country " + countryCode);
 		}
+		System.out.println("Sealights Pull Request");
 		return StringEscapeUtils.escapeHtml4(countryCode);
 	}
 	
